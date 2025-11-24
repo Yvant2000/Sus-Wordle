@@ -37,15 +37,23 @@ fn main() {
     };
 
     let results = compute_sus::compute_sus(&letters);
-    match results {
+    let results = match results {
         None => {
             println!("No solution found for the word \"{}\".", word);
             exit(3);
         }
         Some(res) => {
-            for result in res.iter() {
-                println!("{}", result);
-            }
+            res
         },
     };
+
+    let mut skip = true;
+    for result in results.iter() {
+        if skip && result == word {
+            println!("The found solution have a green background; we skip the first line as it matches the input word.");
+            skip = false;
+            continue;
+        }
+        println!("{}", result);
+    }
 }

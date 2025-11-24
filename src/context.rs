@@ -1,5 +1,4 @@
 use crate::builder::SusBuilder;
-use crate::context::Color::Green;
 use std::collections::HashMap;
 
 pub const WORDLE_WIDTH: usize = 5;
@@ -109,11 +108,7 @@ pub fn fill_context<'a, 'b>(
 
     if color_count == 1 {
         // one color means it's an empty line
-        if colors[0] == Green {
-            None // we disallow green background
-        } else {
-            handle_empty_line(map, colors, word)
-        }
+        handle_empty_line(map, colors, word)
     } else if color_count == 3 {
         // there are three colors, so it's the eyes or an invalid pattern
         if let Some((left_color, right_color, shift)) = is_valid_eyes(colors) {

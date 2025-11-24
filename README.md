@@ -25,7 +25,5 @@ $ SusWordle <word>
 
 ## TODO
 
-* Automatic fetch of today's solution using New York Times API
+* Automatic fetch of today's solution using regex to read the word from the Wordle help page
 * Search for sideways crewmates if no standing crewmate is found
-* Allow green background (this means the first line cannot be empty as this will end immediatly the game).
-The easiest implementation would be to remove the first line from the solution if it's green
